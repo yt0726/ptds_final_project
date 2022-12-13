@@ -14,6 +14,11 @@ RoxygenNote: 7.2.2
 Depends: R (>= 4.0.0)
 Imports: dplyr,
          plotly,
-         lsa
-URL: https://github.com/yt0726/Spotify
-BugReports: https://github.com/yt0726/Spotify/issues
+         lsa,
+         shinydashboard,
+         shiny,
+         fresh,
+         shinythemes,
+         shinyWidgets,
+         DT
+

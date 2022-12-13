@@ -9,11 +9,11 @@ spotify_appinfo(genres, features, levels)
 \arguments{
 \item{genres}{A \code{string} contain the name of the genres that the user chooses.}
 
+\item{features}{A \code{list} containing 5 characters. Each character represents
+the feature that the user choose}
+
 \item{levels}{A \code{list} containing 5 numerics. Each numeric represent the
 value of each feature that user want.}
-
-\item{feature}{A \code{list} containing 5 characters. Each character represents
-the feature that the user choose}
 }
 \value{
 list_values \code{list} containing the following attributes:

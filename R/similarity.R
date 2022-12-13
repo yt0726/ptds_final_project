@@ -3,7 +3,7 @@
 #' @description Calculate the score of Spotify tracks according to the features
 #' and the level for each feature that user choose.
 #' @param genres A \code{string} contain the name of the genres that the user chooses.
-#' @param feature A \code{list} containing 5 characters. Each character represents
+#' @param features A \code{list} containing 5 characters. Each character represents
 #' the feature that the user choose
 #' @param levels A \code{list} containing 5 numerics. Each numeric represent the
 #' value of each feature that user want.
@@ -33,10 +33,10 @@ spotify_similarity <- function(genres, features, levels){
   level_5 <- levels[5]
 
   # As feature is char, it couldn't be added in mutate formula
-  songs <- Spotify %>%
-    select(Artists, Track_name, Track_genre, features[1], features[2], features[3], features[4],
+  songs <- Spotify::Spotify %>%
+    select(.data$Artists, .data$Track_name, .data$Track_genre, features[1], features[2], features[3], features[4],
            features[5]) %>%
-    filter(Spotify$Track_genre %in% genre)
+    filter(.data$Track_genre %in% genre)
 
   # Creation of the setup to compute the matrix of similarity score
   songs_transposed <- songs %>%
