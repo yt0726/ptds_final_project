@@ -21,4 +21,7 @@ Imports: dplyr,
          shinythemes,
          shinyWidgets,
          DT
-
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
