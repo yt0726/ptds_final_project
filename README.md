@@ -4,6 +4,8 @@
 # Spotify
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/ptds2022/final-project-group-a-1/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ptds2022/final-project-group-a-1/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of Spotify is to …
