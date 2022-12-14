@@ -1,0 +1,57 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Spotify
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of Spotify is to ...
+
+## Installation
+
+You can install the development version of Spotify from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("ptds2022/final-project-group-a-1")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(Spotify)
+## basic example code
+```
+
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
+```{r scoring}
+example <- spotify_appinfo(genres="Funk",
+                features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
+                levels = c(9,8,5,4,7))
+knitr::kable(example$result)
+```
+
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
+
+
+
+```{r radar plot, echo = FALSE}
+# radar_plot(example)
+```
+
