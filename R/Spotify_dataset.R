@@ -1,7 +1,8 @@
 #' @title Spotify tracks dataset
 #'
 #' @description A \code{data.frame} that is for analyzing and visualizing.
-#'
+#' It is a dataset of Spotify songs with different genres and their audio features.
+#' The raw data is downloaded from Kaggle and cleaned before use.
 #' @format A \code{data.frame} with 20 columns, which are:
 #' \describe{
 #' \item{Track_id}{The Spotify ID for the track}
@@ -50,4 +51,5 @@
 #' \item{Tempo}{A measurement of the speed or pace of a given piece. The value is
 #' from 0 to 10. The higher value the speed is faster.}
 #' }
-"Spotify"
+#' @source <https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset?resource=download>
+"Spotify_dataset"

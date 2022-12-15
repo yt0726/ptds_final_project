@@ -32,7 +32,7 @@ spotify_appinfo <- function(genres,features,levels){
   level_5 <- levels[5]
 
   # as feature is char, it couldn't be added in mutate formula
-  Songs <- Spotify::Spotify %>%
+  Songs <- Spotify::Spotify_dataset %>%
     select(.data$Artists,.data$Track_name,.data$Track_genre,
            features[1],features[2],features[3],features[4],features[5])%>%
     filter(.data$Track_genre %in% genre)

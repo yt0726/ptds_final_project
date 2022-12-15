@@ -21,7 +21,7 @@ nume_col <- predict(norm_data,as.data.frame(nume_col))
 Spotify <- cate_col %>%
   cbind(nume_col)
 # delete the rows that are duplicated track
-Spotify <- Spotify[!duplicated(Spotify[4:20]),]
+Spotify_dataset <- Spotify[!duplicated(Spotify[4:20]),]
 
-usethis::use_data(Spotify, compress = "xz",overwrite = TRUE)
+usethis::use_data(Spotify_dataset, compress = "xz",overwrite = TRUE)
 
