@@ -4,10 +4,12 @@
 \alias{radar_plot}
 \title{radar plot for songs}
 \usage{
-radar_plot(x, ...)
+radar_plot(x, rank, ...)
 }
 \arguments{
 \item{x}{is an object of class spotify.}
+
+\item{rank}{is the rank of the top 10 songs that we want to plot}
 
 \item{...}{other possible parameters for this method.}
 }
@@ -15,14 +17,14 @@ radar_plot(x, ...)
 fig is the radar plot
 }
 \description{
-Draw a radar plot to show the average value of top 10 songs of
+Draw a radar plot to show the value of one song (rank) of
 each feature and also show the level of each feature that user choose.
 }
 \examples{
 top10_song <- spotify_appinfo(genres = "Funk",
 features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
 levels = c(9,8,5,4,7))
-radar_plot(top10_song)
+radar_plot(top10_song, 1)
 }
 \author{
 Ting Yang
