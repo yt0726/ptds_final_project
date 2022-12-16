@@ -14,25 +14,110 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup,include=FALSE}
 library(Spotify)
 ```
 
-(some examples:
-https://github.com/tidyverse/dplyr/blob/main/vignettes/dplyr.Rmd
-https://github.com/tidyverse/ggplot2/blob/main/vignettes/ggplot2-in-packages.Rmd
-Maybe too complex but can refer to it.)
 
-This vignette provides more information of this package. It contains xxx functions...
+This vignette provides more information of this package. It contains 4 functions. You could get the details of each function in the following context.        
 
 The function depends on functions that are made available from other packages:
-*xxxx*, *xxxx* .....
+*dplyr*, *plotly*, *lsa*, *shinydashboard*, *shiny*, *shinythemes*, *shinyWidgets*, *fresh*, *DT*.    
 
-# spotify_appinfo
+# Spotify Application   
+
+**Function: Spotify::Spotify_gui**
+
+This function is to run the application. To run the application, you could run it directly to start-up the program. You would see the pop-up window of the application, then you could input your preference following the instructions on the first page `Introduction`. When you only run this application, you do not need to have any data. There is a data set obtained from Spotify that contains 106,943 observation (music).    
+
+*Example*
+```{r,eval=FALSE}
+Spotify::Spotify_gui()
+```
+
+# Data set included in Package      
+
+**Function: Spotify::Spotify_dataset**    
+
+This package contains one data set which is also the data source for running the application. This data set is from Spotify, and it contains 20 columns:
+
+* Track_id: The Spotify ID for the track    
+* Artists: The artists' names who performed the track. If there is more than one artist, they are separated by a.      
+* Album_name: The album name in which the track appears.    
+* Track_name: Name of the track.
+* Popularity: The popularity of a track is a value between 0 and 10, with 10 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity.    
+* Duration_ms: The track length in milliseconds.    
+* Explicit: Whether or not the track has explicit lyrics (true = yes it does; false = no it does not OR unknown).    
+* Danceability: Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 10 is most danceable.    
+* Energy: Energy is a measure from 0.0 to 10 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale.   
+* Key: The key the track is in. Integers map to pitches using standard Pitch Class notation. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on.    
+* Loudness: The overall loudness of a track in decibels (dB).   
+* Mode: Mode indicates the modality (major or minor) of a track, the type of scale from which its melodic content is derived. Major is represented by 1 and minor is 0.   
+* Speechiness: Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 10 the attribute value. Values above 6.6 describe tracks that are probably made entirely of spoken words. Values between 3.3 and 6.6 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 3.3 most likely represent music and other non-speech-like tracks.    
+* Acousticness: A confidence measure from 0.0 to 10 of whether the track is acoustic. 10 represents high confidence the track is acoustic.    
+* Instrumentalness: Predicts whether a track contains no vocals. "Ooh" and "aah" sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly "vocal". The closer the instrumentalness value is to 10, the greater likelihood the track contains no vocal content.   
+* Liveness: Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 8 provides strong likelihood that the track is live.      
+* Valence: A measure from 0 to 10 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).       
+* Tempo: The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration       
+* Time_signature: An estimated time signature. The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure).     
+* Track_genre: The genre in which the track belongs.   
+
+```{r}
+knitr::kable(Spotify::Spotify_dataset[1:10,])
+```
+    
+         
+# Scoring Function     
+
+**Function: Spotify::spotify_appinfo**   
+
+If you want to input a new data set to obtain your specific list, you might want to run this function individually. Thus, to run this function, you should have a data set as one of the input variables, and you also need to input the music genres you prefer, your five favorite features and their corresponding levels, as you do not input your selection via the application.    
+
+When working with data you must:   
+
+* Preferably, you have the data set with same column structure as `Spotify_dataset`. If not, you need to ensure the feature column begins from the fifth column as the result will be calculated based on the features' column.   
+
+Regarding the output, you will get a list which contains the data as following:     
+
+* result: This is the result data frame calculated based on the input of your features and levels selection. There is top 10 music that are the most matched with the number of levels of features you enter.      
+* user_genres: return to your input music genres. It is characters.    
+* user_features: return to your input five features. It is characters.   
+* user_level: return to your input five levels, which are correspond to the features. It is characters.    
+```{r scoring, echo=FALSE}
+example <- spotify_appinfo(genres="Funk",
+                features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
+                levels = c(9,8,5,4,7))
+knitr::kable(example$result)
+```
+
+# Similarity Function 
+
+**Function: Spotify::spotify_similarity**  
+
+This function consider using the basic recommendation engine algorithm. Create similarity scores for songs by calculating Cosine similarity between selected features and levels and the those of songs in data base, then obtain a new recommended songs list which have largest similarity with the selected filters.    
+The formula of the Cosine similarity is as follows:   
+$$sim(A,B)=cos(A,B)=\frac{A\cdot B}{||A||\cdot||B||}=\frac{\sum_{i = 1}^{n} A_{i}B_{i}}{\sqrt{\sum_{i = 1}^{n} A_{i}^2}\sqrt{\sum_{i = 1}^{n} B_{i}^2}}$$
+Thus, it does the same thing as the previous `spotify_appinfo` function but use different algorithm. Also, you can only run this function with new filters. Below, you can see another example with same input variables as above but obtain a different result list.        
+
+```{r similarity,echo=FALSE}
+example_2 <- spotify_similarity(genres = "Funk",
+features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
+levels = c(9,8,5,4,7))
+
+knitr::kable(example_2$result)
+```
 
 
-# spotify_similarity
 
+# Radar plot   
 
-# radar_plot
+**Function: Spotify::radar_plot** 
 
+To run this function individually, you are supposed to input a list object as the input variable. The list object should be in the same stucture as the output of `spotify_appinfo` function. Which means, it contains a data frame result, user_genres, user_features, user_level.
+
+* data frame result: could have more than one row except for the header. If it contains several music, the function would calculate the average of each feature's level to draw the plot.       
+* In this case, in the plot output, you could only see two layers. One is the layer for the result list, another is for your original input, the features and levels you prefer.      
+
+```{r radarplot, echo = FALSE, message=FALSE,warning=FALSE}
+radar_plot(example,rank = 1)
+```

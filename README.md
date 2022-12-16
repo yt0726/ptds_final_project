@@ -1,14 +1,18 @@
+PTDA_SPOTIFY
+================
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# Spotify
+# Spotify <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/ptds2022/final-project-group-a-1/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ptds2022/final-project-group-a-1/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/yt0726/ptds_final_project/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/yt0726/ptds_final_project/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of Spotify is to …
+The goal of Spotify is to find the user’s favorite music list. It allows
+you select features they care more about and their corresponding levels.
+The Spotify would give two recommendation lists which are as match as
+possible to your selections. One of the lists is obtained by cosine
+similarity algorithm.
 
 ## Installation
 
@@ -20,17 +24,29 @@ You can install the development version of Spotify from
 devtools::install_github("ptds2022/final-project-group-a-1")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+**Run application**
+
+To run the application, you could run this code to start-up the program.
+You would see the pop-up window of the application, then you could input
+your preference following the instructions on the first page
+`Introduction`. When you only run this application, you do not need to
+have any data. There is a data set obtained from Spotify that contains
+106,943 observation (music).
 
 ``` r
-library(Spotify)
-## basic example code
+Spotify::Spotify_gui()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+**Run scoring function**
+
+Here is to simulate the output obtained by your selections. If you
+choose music’s genre is: Funk, and you care about Danceability, Energy,
+Loudness, Speechiness, Liveness, and you set the corresponding levels
+are 9,8,5,4,7, you will get the list similar to the table below. Of
+course, you could use this function individually, and transmit input
+like the example.
 
 ``` r
 example <- spotify_appinfo(genres="Funk",
@@ -52,8 +68,42 @@ knitr::kable(example$result)
 | 688 | MC Marks;Mc Davi;Mc Don Juan                                      | Ela Tá Tá Tá                          | Funk        |     8.903553 |   7.21 | 7.970886 |   0.4818653 |     2.85 | 9.903553 |    9.21 | 7.029114 | 6.481865 |    5.85 |    1.641093 |
 | 625 | MC Teteu;JC NO BEAT;DJ F7                                         | Ta Com Saudade de Mim                 | Funk        |     8.883249 |   7.75 | 8.106653 |   0.5709845 |     1.07 | 9.883249 |    9.75 | 6.893347 | 6.570984 |    4.07 |    1.638967 |
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+**Run radar plot function**
+
+Besides running the application, if you have similar data set which
+includes a data frame like the above table, and five fixed features and
+their levels, you could run the radar plot individually.
+
+Yet, you need input the `rank` variable which indicates the range of
+songs you want to plot. For example, if you want to plot the first 3
+songs, you would input 1:3, and the values of their features’ levels
+would be averaged. The example below only plots one songs and compared
+with the selections. Check example as following:
+
+<img src="man/figures/README-radarplot-1.png" width="60%" />
+
+Meantime, similar to radar plot, you could also run similarity function
+separately. Check example as following:
+
+**Run similarity function**
+
+``` r
+example_2 <- spotify_similarity(genres = "Funk",
+features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
+levels = c(9,8,5,4,7))
+
+knitr::kable(example_2$result)
+```
+
+|     | Artists                           | Track_name                              | Track_genre | Danceability | Energy | Loudness | Speechiness | Liveness |
+|:----|:----------------------------------|:----------------------------------------|:------------|-------------:|-------:|---------:|------------:|---------:|
+| 4   | Anitta                            | Envolver                                | Funk        |     8.253807 |   7.33 | 8.159740 |   0.8777202 |    0.909 |
+| 1   | Coolio;L.V.                       | Gangsta’s Paradise                      | Funk        |     6.568528 |   5.14 | 7.302776 |   0.6145078 |    3.980 |
+| 9   | Anitta;Chencho Corleone           | Gata                                    | Funk        |     5.258883 |   7.99 | 8.363391 |   1.2746114 |    7.870 |
+| 5   | Anitta;Missy Elliott              | Lobby                                   | Funk        |     7.705584 |   7.11 | 8.200063 |   0.3979275 |    1.430 |
+| 7   | Anitta;Missy Elliott              | Lobby                                   | Funk        |     7.705584 |   7.11 | 8.200063 |   0.3979275 |    1.430 |
+| 3   | Anitta;Missy Elliott              | Lobby                                   | Funk        |     7.705584 |   7.11 | 8.200063 |   0.3979275 |    1.430 |
+| 2   | Clean Bandit;Sean Paul;Anne-Marie | Rockabye (feat. Sean Paul & Anne-Marie) | Funk        |     7.309645 |   7.63 | 8.409263 |   0.5419689 |    1.800 |
+| 8   | Anitta;Swae Lee                   | Poquito                                 | Funk        |     7.116751 |   8.51 | 8.416292 |   1.2953368 |    3.090 |
+| 6   | Anitta                            | Boys Don’t Cry                          | Funk        |     6.030457 |   8.74 | 8.496199 |   0.4010363 |    1.480 |
+| 10  | Anitta;Swae Lee                   | Poquito                                 | Funk        |     7.116751 |   8.51 | 8.416292 |   1.2953368 |    3.090 |
