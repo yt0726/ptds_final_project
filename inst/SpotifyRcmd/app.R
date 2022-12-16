@@ -1,67 +1,72 @@
 # backgroud photo link
-bg_url <- "https://images.unsplash.com/photo-1477233534935-f5e6fe7c1159?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG11c2ljfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+# bg_url <- "https://images.unsplash.com/photo-1477233534935-f5e6fe7c1159?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG11c2ljfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
 ### SHINY UI ###
-ui <- bootstrapPage(
+ui <- fluidPage(
 
-  navbarPage(theme = shinythemes::shinytheme("flatly"), collapsible = TRUE,
+  navbarPage(theme = shinythemes::shinytheme("yeti"), collapsible = TRUE,
              HTML('<a style="text-decoration:none;cursor:default;color:#FFFFFF;" class="active" href="#">PTDS_Spotify</a>'),
              id="nav", windowTitle = "PTDS_Spotify",
-             shinyWidgets::setBackgroundImage(src= bg_url), # give a backgroud photo
+             # shinyWidgets::setBackgroundImage(src= bg_url), # give a backgroud photo
              #first page
-             tabPanel("Introduction"),
+             tabPanel("Introduction",
+                      fluidRow(
+                        h1("Welcome to our application"),
+                        p("We are pleased that you are using our application. Our objective is to give you a list of recommended songs based on your tastes."),
+                        p("The motivation behind this application is that we all want to discover new songs, but sometimes, it can be tricky to get the ones that fit our tastes."),
+                        p("Based on our own algorithm, we allow you to choose between different features:")
+                      )
+             ),
              #second page
-             tabPanel("Custom",
+             tabPanel("Recommendation",
                       # a series of custom keys
-                      sidebarLayout(
-                        sidebarPanel(width = 4,
-                                     span(tags$i(h5("Choose the music genre,",br(),"then five un-repeating features you care",
-                                                    br(), "and their corresponding levels")),
-                                          style="color:#045a8d"),
-                                     shinyWidgets::pickerInput("genre","Select or search for one or multiple genres",
-                                                 choices =  unique(Spotify_dataset$Track_genre),selected = NULL,multiple = T),
-                                     shiny::selectizeInput("feature_1", "Feature 1",choices =  colnames(Spotify_dataset)[10:20],  multiple = F),
-                                     shiny::sliderInput("lev1", NULL, min = 0, max = 10, value = 0,ticks=F),
-                                     shiny::selectizeInput("feature_2", "Feature 2", choices =  colnames(Spotify_dataset)[10:20],  multiple = F),
-                                     shiny::sliderInput("lev2", NULL, min = 0, max = 10, value = 0,ticks=F),
-                                     shiny::selectizeInput("feature_3", "Feature 3",choices =  colnames(Spotify_dataset)[10:20], multiple = F),
-                                     shiny::sliderInput("lev3", NULL, min = 0, max = 10, value = 0,ticks=F),
-                                     shiny::selectizeInput("feature_4", "Feature 4",choices =  colnames(Spotify_dataset)[10:20], multiple = F),
-                                     shiny::sliderInput("lev4", NULL, min = 0, max = 10, value = 0,ticks=F),
-                                     shiny::selectizeInput("feature_5", "Feature 5",choices =  colnames(Spotify_dataset)[10:20], multiple = F),
-                                     shiny::sliderInput("lev5", NULL, min = 0, max = 10, value = 0,ticks=F)
-                        ),
-                        mainPanel(
-                          DT::DTOutput("result"),
-                          width = 8
-                        )
+                      fluidRow(align = "center",
+                               column(12,
+                                      shiny::selectInput("scoring_method", "", choices = c("Similarity", "Score")))
+                      ),
+                      fluidRow(align = "center",
+                               p(""),
+                               p("To use our algorithm, choose first your genre, then the features in the order of importance, and click the button to get the recommended songs.")
+                      ),
+                      fluidRow(align = "center",
+                               column(12,
+                                      shinyWidgets::pickerInput("genre", "", choices =  unique(Spotify$Track_genre),selected = NULL,multiple = T))
+                      ),
+                      fluidRow(
+                        column(2, offset = 1,
+                               shiny::selectizeInput("feature_1", "Select the first feature",choices =  colnames(Spotify)[10:20],  multiple = F),
+                               shiny::sliderInput("lev1", NULL, min = 0, max = 10, value = 0,ticks=F)),
+                        column(2,
+                               shiny::selectizeInput("feature_2", "Second feature", choices =  colnames(Spotify)[10:20],  multiple = F),
+                               shiny::sliderInput("lev2", NULL, min = 0, max = 10, value = 0,ticks=F)),
+                        column(2,
+                               shiny::selectizeInput("feature_3", "Third feature",choices =  colnames(Spotify)[10:20], multiple = F),
+                               shiny::sliderInput("lev3", NULL, min = 0, max = 10, value = 0,ticks=F)),
+                        column(2,
+                               shiny::selectizeInput("feature_4", "Fourth feature", choices =  colnames(Spotify)[10:20], multiple = F),
+                               shiny::sliderInput("lev4", NULL, min = 0, max = 10, value = 0,ticks=F)),
+                        column(2,
+                               shiny::selectizeInput("feature_5", "Fifth feature",choices =  colnames(Spotify)[10:20], multiple = F),
+                               shiny::sliderInput("lev5", NULL, min = 0, max = 10, value = 0,ticks=F))
+                      ),
+                      fluidRow(
+                        column(12, align = "center",
+                               shiny::actionButton("launch", "Get the recommended songs", icon("music")))
+                      ),
+                      fluidRow(
+                        DT::DTOutput("result")
+                      ),
+                      fluidRow(
+                        column(4,
+                               plotly::plotlyOutput("radar_plot1", height = 500)),
+                        column(4,
+                               plotly::plotlyOutput("radar_plot2", height = 500)),
+                        column(4,
+                               plotly::plotlyOutput("radar_plot3", height = 500)),
                       )
-
-             ),
-             #third page
-             tabPanel("Result Radar",
-                      div(class="outer",
-                          tags$head(href="style.css"),
-                          absolutePanel(id = "controls", class = "panel panel-default",
-                                        top = 100, left = 80, width = 400, fixed=TRUE,
-                                        draggable = TRUE, height = "auto",
-                                        span(tags$i(h3("Your preference chosen before")), style="color:#045a8d"),
-                                        span(tags$i(h5("You chose genres of music: ")), style="color:#000000"),
-                                        textOutput("genre_preference"),
-                                        br(),
-                                        tableOutput("user_preference")
-                          ),
-
-                          absolutePanel(id = "mainpage", class = "panel panel-default",
-                                        top = 100, left = 500, width = 800, fixed=TRUE, height = 550,
-                                        br(),
-                                        plotly::plotlyOutput("radar_plot", height = 500)
-                          )
-                      )
-             ),
-             tabPanel("More Recommendation")
+             )
   )
-
 )
+
 ### SHINY SERVER ###
 server = function(input, output, session) {
   ## reactive informations -----
@@ -75,9 +80,14 @@ server = function(input, output, session) {
   # basic info covers all info that might be used in the following step
   basic_info <- reactive({
     if (any(duplicated(features()))!=T && sum(level())>0) {
-      basic_info <- spotify_appinfo(genres = genre(),levels = level(),feature = features())
+      if (input$scoring_method == "Score") {
+        basic_info <- spotify_appinfo(genres = genre(),levels = level(),feature = features())
+      } else if (input$scoring_method == "Similarity") {
+        basic_info <- spotify_similarity(genres = genre(),levels = level(),feature = features())
+      }
     }
-  })
+  }) %>%  bindEvent(input$launch)
+
   ## output -----
   ### second page ----
 
@@ -91,15 +101,15 @@ server = function(input, output, session) {
       list_result <- dplyr::select(list_result,Artists,Track_name,Track_genre)
 
       DT::datatable(list_result, extensions = 'Buttons',
-                rownames = FALSE,
-                options = list(paging=FALSE, processing=FALSE,
-                               dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
-                               initComplete = DT::JS(
-                                 "function(settings, json) {",
-                                 "$(this.api().table().header()).css({'background-color': '#2E3440	', 'color': '#FFFFFF'});",
-                                 "$(this.api().table().body()).css({'background-color': '#2E3440	', 'color': '#FFFFFF'});",
-                                 "}") #replace bg color of table
-                ))
+                    rownames = FALSE,
+                    options = list(paging=FALSE, processing=FALSE,
+                                   dom = 'Bfrtip',buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+                                   initComplete = DT::JS(
+                                     "function(settings, json) {",
+                                     "$(this.api().table().header()).css({'background-color': '#2E3440	', 'color': '#FFFFFF'});",
+                                     "$(this.api().table().body()).css({'background-color': '#2E3440	', 'color': '#FFFFFF'});",
+                                     "}") #replace bg color of table
+                    ))
     }
   })
   ### third page ----
@@ -111,9 +121,19 @@ server = function(input, output, session) {
     data.frame("Features" = features(),
                "Levels" = level())})
 
-  # radar plot
-  output$radar_plot <- plotly::renderPlotly({
-    radar_plot(basic_info())
+  # radar plot for the first song
+  output$radar_plot1 <- plotly::renderPlotly({
+    radar_plot(basic_info(), 1)
+  })
+
+  # radar plot for the second song
+  output$radar_plot2 <- plotly::renderPlotly({
+    radar_plot(basic_info(), 2)
+  })
+
+  # radar plot for the third song
+  output$radar_plot3 <- plotly::renderPlotly({
+    radar_plot(basic_info(), 3)
   })
 
 }
