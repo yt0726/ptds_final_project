@@ -29,7 +29,7 @@ ui <- fluidPage(
                       ),
                       fluidRow(align = "center",
                                column(12,
-                                      shinyWidgets::pickerInput("genre", "", choices =  unique(Spotify_dataset$Track_genre),selected = NULL,multiple = T))
+                                      shiny::selectInput("genre", "", choices =  sort(unique(Spotify_dataset$Track_genre)),selected = NULL,multiple = T))
                       ),
                       fluidRow(
                         column(2, offset = 1,
@@ -78,7 +78,7 @@ server = function(input, output, session) {
   # only when users select un-repeating features and at least one level, the scoring function can be activated
   # basic_info will return the recommendation result list calculated by users' selection, and users' selections as well
   # basic info covers all info that might be used in the following step
-  basic_info <- reactive({
+  basic_info <- eventReactive(input$launch, {
     if (any(duplicated(features()))!=T && sum(level())>0) {
       if (input$scoring_method == "Score") {
         basic_info <- spotify_appinfo(genres = genre(),levels = level(),feature = features())
@@ -86,7 +86,7 @@ server = function(input, output, session) {
         basic_info <- spotify_similarity(genres = genre(),levels = level(),feature = features())
       }
     }
-  }) %>%  bindEvent(input$launch)
+  })
 
   ## output -----
   ### second page ----
