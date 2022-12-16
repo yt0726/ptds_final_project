@@ -29,23 +29,23 @@ ui <- fluidPage(
                       ),
                       fluidRow(align = "center",
                                column(12,
-                                      shinyWidgets::pickerInput("genre", "", choices =  unique(Spotify$Track_genre),selected = NULL,multiple = T))
+                                      shinyWidgets::pickerInput("genre", "", choices =  unique(Spotify_dataset$Track_genre),selected = NULL,multiple = T))
                       ),
                       fluidRow(
                         column(2, offset = 1,
-                               shiny::selectizeInput("feature_1", "Select the first feature",choices =  colnames(Spotify)[10:20],  multiple = F),
+                               shiny::selectizeInput("feature_1", "Select the first feature",choices =  colnames(Spotify_dataset)[10:20],  multiple = F),
                                shiny::sliderInput("lev1", NULL, min = 0, max = 10, value = 0,ticks=F)),
                         column(2,
-                               shiny::selectizeInput("feature_2", "Second feature", choices =  colnames(Spotify)[10:20],  multiple = F),
+                               shiny::selectizeInput("feature_2", "Second feature", choices =  colnames(Spotify_dataset)[10:20],  multiple = F),
                                shiny::sliderInput("lev2", NULL, min = 0, max = 10, value = 0,ticks=F)),
                         column(2,
-                               shiny::selectizeInput("feature_3", "Third feature",choices =  colnames(Spotify)[10:20], multiple = F),
+                               shiny::selectizeInput("feature_3", "Third feature",choices =  colnames(Spotify_dataset)[10:20], multiple = F),
                                shiny::sliderInput("lev3", NULL, min = 0, max = 10, value = 0,ticks=F)),
                         column(2,
-                               shiny::selectizeInput("feature_4", "Fourth feature", choices =  colnames(Spotify)[10:20], multiple = F),
+                               shiny::selectizeInput("feature_4", "Fourth feature", choices =  colnames(Spotify_dataset)[10:20], multiple = F),
                                shiny::sliderInput("lev4", NULL, min = 0, max = 10, value = 0,ticks=F)),
                         column(2,
-                               shiny::selectizeInput("feature_5", "Fifth feature",choices =  colnames(Spotify)[10:20], multiple = F),
+                               shiny::selectizeInput("feature_5", "Fifth feature",choices =  colnames(Spotify_dataset)[10:20], multiple = F),
                                shiny::sliderInput("lev5", NULL, min = 0, max = 10, value = 0,ticks=F))
                       ),
                       fluidRow(
