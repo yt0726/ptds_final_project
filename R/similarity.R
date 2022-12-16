@@ -34,13 +34,13 @@ spotify_similarity <- function(genres, features, levels){
 
   # As feature is char, it couldn't be added in mutate formula
   songs <- Spotify::Spotify_dataset %>%
-    select(.data$Artists, .data$Track_name, .data$Track_genre, features[1], features[2], features[3], features[4],
+    dplyr::select(.data$Artists, .data$Track_name, .data$Track_genre, features[1], features[2], features[3], features[4],
            features[5]) %>%
     filter(.data$Track_genre %in% genre)
 
   # Creation of the setup to compute the matrix of similarity score
   songs_transposed <- songs %>%
-    select(features[1], features[2], features[3], features[4], features[5])
+    dplyr::select(features[1], features[2], features[3], features[4], features[5])
   features_selected <- c(level_1, level_2, level_3, level_4, level_5)
   songs_transposed <- rbind(features_selected, songs_transposed)
   songs_transposed <- as.data.frame(t(songs_transposed)) %>%
