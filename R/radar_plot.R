@@ -1,8 +1,9 @@
 #' @title radar plot for songs
 #'
-#' @description Draw a radar plot to show the average value of top 10 songs of
+#' @description Draw a radar plot to show the value of one song (rank) of
 #' each feature and also show the level of each feature that user choose.
 #' @param x is an object of class spotify.
+#' @param rank is the rank of the top 10 songs that we want to plot
 #' @param ... other possible parameters for this method.
 #' @return fig is the radar plot
 #' @author Ting Yang
@@ -13,8 +14,8 @@
 #' top10_song <- spotify_appinfo(genres = "Funk",
 #' features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
 #' levels = c(9,8,5,4,7))
-#' radar_plot(top10_song)
-radar_plot <- function(x,...){
+#' radar_plot(top10_song, 1)
+radar_plot <- function(x, rank, ...){
 
   # result list based on users' choices
   list_result <- x$result
@@ -22,8 +23,7 @@ radar_plot <- function(x,...){
   result_level <- as.character()
   for (i in 1:5) {
     # as the first three columns are the tracks' basic info, so calculate the features' level from the third column
-    l <- list_result[,i+3]
-    l <- mean(l)
+    l <- list_result[rank,i+3]
     result_level <- append(result_level,l)
   }
 
@@ -37,14 +37,14 @@ radar_plot <- function(x,...){
     add_trace(
       r = x$user_level,
       theta = x$user_feature,
-      name = "Users' selections")
+      name = "User' selections")
 
   # add trace: plot for recommendation list based on users' selections
   fig <- fig %>%
     add_trace(
       r = result_level,
       theta = x$user_feature,
-      name = 'Result list')
+      name = 'Song')
 
   # format layout
   fig <- fig %>%
