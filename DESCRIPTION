@@ -20,7 +20,8 @@ Imports: dplyr,
          fresh,
          shinythemes,
          shinyWidgets,
-         DT
+         DT,
+         magrittr
 Suggests: 
     knitr,
     rmarkdown,
