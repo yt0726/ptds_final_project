@@ -9,6 +9,7 @@
 #' @import plotly
 #' @import dplyr
 #' @importFrom DT datatable JS
+#' @importFrom magrittr %>%
 #' @export
 Spotify_gui = function(){
   appDir = system.file("SpotifyRcmd", package = "Spotify")
