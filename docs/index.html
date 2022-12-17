@@ -65,17 +65,14 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header">
+  <main id="main" class="col-md-9"><div class="section level1"><div class="page-header">
 <img src="logo.png" class="logo" alt=""><h1 id="ptda_spotify">PTDA_SPOTIFY<a class="anchor" aria-label="anchor" href="#ptda_spotify"></a>
 </h1>
-</div>
-</div>
+</div></div>
 <div class="section level1">
 <h1 id="spotify-">Spotify <a class="anchor" aria-label="anchor" href="#spotify-"></a>
 </h1>
 <!-- badges: start -->
-
 <p>The goal of Spotify is to find the user’s favorite music list. It allows you select features they care more about and their corresponding levels. The Spotify would give two recommendation lists which are as match as possible to your selections. One of the lists is obtained by cosine similarity algorithm.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -83,7 +80,7 @@
 <p>You can install the development version of Spotify from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ptds2022/final-project-group-a-1"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"yt0726/ptds_final_project"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -95,7 +92,7 @@
 <p><strong>Run scoring function</strong></p>
 <p>Here is to simulate the output obtained by your selections. If you choose music’s genre is: Funk, and you care about Danceability, Energy, Loudness, Speechiness, Liveness, and you set the corresponding levels are 9,8,5,4,7, you will get the list similar to the table below. Of course, you could use this function individually, and transmit input like the example.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/spotify_appinfo.html">spotify_appinfo</a></span><span class="op">(</span>genres<span class="op">=</span><span class="st">"Funk"</span>,</span>
+<code class="sourceCode R"><span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/Spotify_scoring.html">Spotify_scoring</a></span><span class="op">(</span>genres<span class="op">=</span><span class="st">"Funk"</span>,</span>
 <span>                features<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Danceability"</span>,<span class="st">"Energy"</span>,<span class="st">"Loudness"</span>,<span class="st">"Speechiness"</span>,<span class="st">"Liveness"</span><span class="op">)</span>,</span>
 <span>                levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">9</span>,<span class="fl">8</span>,<span class="fl">5</span>,<span class="fl">4</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">example</span><span class="op">$</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
@@ -150,7 +147,7 @@
 <td align="right">6.824353</td>
 <td align="right">7.544041</td>
 <td align="right">5.36</td>
-<td align="right">1.657559</td>
+<td align="right">8.287794</td>
 </tr>
 <tr class="even">
 <td align="left">707</td>
@@ -167,7 +164,7 @@
 <td align="right">7.710911</td>
 <td align="right">7.378238</td>
 <td align="right">9.35</td>
-<td align="right">1.650778</td>
+<td align="right">8.253889</td>
 </tr>
 <tr class="odd">
 <td align="left">269</td>
@@ -184,7 +181,7 @@
 <td align="right">7.223517</td>
 <td align="right">9.678757</td>
 <td align="right">8.45</td>
-<td align="right">1.650557</td>
+<td align="right">8.252785</td>
 </tr>
 <tr class="even">
 <td align="left">805</td>
@@ -201,7 +198,7 @@
 <td align="right">6.813625</td>
 <td align="right">7.575130</td>
 <td align="right">4.22</td>
-<td align="right">1.647530</td>
+<td align="right">8.237648</td>
 </tr>
 <tr class="odd">
 <td align="left">265</td>
@@ -218,7 +215,7 @@
 <td align="right">7.023750</td>
 <td align="right">6.633161</td>
 <td align="right">6.87</td>
-<td align="right">1.647101</td>
+<td align="right">8.235506</td>
 </tr>
 <tr class="even">
 <td align="left">464</td>
@@ -235,7 +232,7 @@
 <td align="right">6.662875</td>
 <td align="right">6.776166</td>
 <td align="right">4.24</td>
-<td align="right">1.647085</td>
+<td align="right">8.235426</td>
 </tr>
 <tr class="odd">
 <td align="left">294</td>
@@ -252,7 +249,7 @@
 <td align="right">6.671383</td>
 <td align="right">8.393782</td>
 <td align="right">4.07</td>
-<td align="right">1.643091</td>
+<td align="right">8.215455</td>
 </tr>
 <tr class="even">
 <td align="left">103</td>
@@ -269,7 +266,7 @@
 <td align="right">6.942179</td>
 <td align="right">8.559586</td>
 <td align="right">6.27</td>
-<td align="right">1.642564</td>
+<td align="right">8.212819</td>
 </tr>
 <tr class="odd">
 <td align="left">688</td>
@@ -286,7 +283,7 @@
 <td align="right">7.029114</td>
 <td align="right">6.481865</td>
 <td align="right">5.85</td>
-<td align="right">1.641093</td>
+<td align="right">8.205462</td>
 </tr>
 <tr class="even">
 <td align="left">625</td>
@@ -303,18 +300,18 @@
 <td align="right">6.893347</td>
 <td align="right">6.570984</td>
 <td align="right">4.07</td>
-<td align="right">1.638967</td>
+<td align="right">8.194836</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Run radar plot function</strong></p>
 <p>Besides running the application, if you have similar data set which includes a data frame like the above table, and five fixed features and their levels, you could run the radar plot individually.</p>
-<p>Yet, you need input the <code>rank</code> variable which indicates the range of songs you want to plot. For example, if you want to plot the first 3 songs, you would input 1:3, and the values of their features’ levels would be averaged. The example below only plots one songs and compared with the selections. Check example as following:</p>
+<p>Yet, you need input the <code>rank</code> variable which indicates the range of songs you want to plot. For example, if you want to plot the first sons, you would input rank=1, and the values of their features’ levels would be averaged. The example below only plots one songs and compared with the selections. Check example as following:</p>
 <p><img src="reference/figures/README-radarplot-1.png" width="60%"></p>
 <p>Meantime, similar to radar plot, you could also run similarity function separately. Check example as following:</p>
 <p><strong>Run similarity function</strong></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">example_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/spotify_similarity.html">spotify_similarity</a></span><span class="op">(</span>genres <span class="op">=</span> <span class="st">"Funk"</span>,</span>
+<code class="sourceCode R"><span><span class="va">example_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/Spotify_similarity.html">Spotify_similarity</a></span><span class="op">(</span>genres <span class="op">=</span> <span class="st">"Funk"</span>,</span>
 <span>features<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Danceability"</span>,<span class="st">"Energy"</span>,<span class="st">"Loudness"</span>,<span class="st">"Speechiness"</span>,<span class="st">"Liveness"</span><span class="op">)</span>,</span>
 <span>levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">9</span>,<span class="fl">8</span>,<span class="fl">5</span>,<span class="fl">4</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>

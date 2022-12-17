@@ -81,9 +81,9 @@ server = function(input, output, session) {
   basic_info <- eventReactive(input$launch, {
     if (any(duplicated(features()))!=T && sum(level())>0) {
       if (input$scoring_method == "Score") {
-        basic_info <- spotify_appinfo(genres = genre(),levels = level(),feature = features())
+        basic_info <- Spotify_scoring(genres = genre(),levels = level(),feature = features())
       } else if (input$scoring_method == "Similarity") {
-        basic_info <- spotify_similarity(genres = genre(),levels = level(),feature = features())
+        basic_info <- Spotify_similarity(genres = genre(),levels = level(),feature = features())
       }
     }
   })

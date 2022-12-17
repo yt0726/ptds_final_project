@@ -18,10 +18,10 @@
 #' @import dplyr
 #' @export
 #' @examples
-#' spotify_appinfo(genres = "Funk",
+#' Spotify_scoring(genres = "Funk",
 #' features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
 #' levels = c(9,8,5,4,7))
-spotify_appinfo <- function(genres,features,levels){
+Spotify_scoring <- function(genres,features,levels){
 
   #user's selection
   genre<- genres
@@ -44,20 +44,20 @@ spotify_appinfo <- function(genres,features,levels){
            score_3= 10-(abs(level_3-Songs[,6])),
            score_4=10-(abs(level_4-Songs[,7])),
            score_5= 10-(abs(level_5-Songs[,8]))) %>%
-    mutate(final_score=(0.5*.data$score_1+0.2*.data$score_2+0.15*.data$score_3+
-                          0.01*.data$score_4+0.05*.data$score_5)/5)
+    mutate(final_score=0.5*.data$score_1+0.2*.data$score_2+0.15*.data$score_3+
+                          0.01*.data$score_4+0.05*.data$score_5)
   top <- Songs[order(-Songs$final_score),]
   #select top 10, this is the result based on users' selection
   top10 <- top[1:10,]
 
   # create a list including result list, users' selection for further use
-  spotify_appinfo <- list(
+  Spotify_scoring <- list(
     result = top10,
     user_genre = genre,
     user_feature = features,
     user_level = levels
 
   )
-  return(spotify_appinfo)
+  return(Spotify_scoring)
 }
 

@@ -65,7 +65,7 @@
 
 
 
-<script src="my-vignette_files/htmlwidgets-1.6.0/htmlwidgets.js"></script><script src="my-vignette_files/plotly-binding-4.10.1.9000/plotly.js"></script><script src="my-vignette_files/typedarray-0.1/typedarray.min.js"></script><link href="my-vignette_files/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="my-vignette_files/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="my-vignette_files/plotly-binding-4.10.1/plotly.js"></script><script src="my-vignette_files/typedarray-0.1/typedarray.min.js"></script><link href="my-vignette_files/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="my-vignette_files/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="my-vignette_files/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="my-vignette_files/plotly-main-2.11.1/plotly-latest.min.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
@@ -78,24 +78,13 @@
 
     
     
-<p>This vignette provides more information of this package. It contains
-4 functions. You could get the details of each function in the following
-context.</p>
-<p>The function depends on functions that are made available from other
-packages: <em>dplyr</em>, <em>plotly</em>, <em>lsa</em>,
-<em>shinydashboard</em>, <em>shiny</em>, <em>shinythemes</em>,
-<em>shinyWidgets</em>, <em>fresh</em>, <em>DT</em>.</p>
+<p>This vignette provides more information of this package. It contains 4 functions. You could get the details of each function in the following context.</p>
+<p>The function depends on functions that are made available from other packages: <em>dplyr</em>, <em>plotly</em>, <em>lsa</em>, <em>shinydashboard</em>, <em>shiny</em>, <em>shinythemes</em>, <em>shinyWidgets</em>, <em>fresh</em>, <em>DT</em>.</p>
 <div class="section level2">
 <h2 id="spotify-application">Spotify Application<a class="anchor" aria-label="anchor" href="#spotify-application"></a>
 </h2>
 <p><strong>Function: <a href="Spotify::Spotify_gui" class="uri">Spotify::Spotify_gui</a></strong></p>
-<p>This function is to run the application. To run the application, you
-could run it directly to start-up the program. You would see the pop-up
-window of the application, then you could input your preference
-following the instructions on the first page <code>Introduction</code>.
-When you only run this application, you do not need to have any data.
-There is a data set obtained from Spotify that contains 106,943
-observation (music).</p>
+<p>This function is to run the application. To run the application, you could run it directly to start-up the program. You would see the pop-up window of the application, then you could input your preference following the instructions on the first page <code>Introduction</code>. When you only run this application, you do not need to have any data. There is a data set obtained from Spotify that contains 106,943 observation (music).</p>
 <p><em>Example</em></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">Spotify</span><span class="fu">::</span><span class="fu"><a href="../reference/Spotify_gui.html">Spotify_gui</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -104,88 +93,44 @@ observation (music).</p>
 <h2 id="data-set-included-in-package">Data set included in Package<a class="anchor" aria-label="anchor" href="#data-set-included-in-package"></a>
 </h2>
 <p><strong>Function: <a href="Spotify::Spotify_dataset" class="uri">Spotify::Spotify_dataset</a></strong></p>
-<p>This package contains one data set which is also the data source for
-running the application. This data set is from Spotify, and it contains
-20 columns:</p>
+<p>This package contains one data set which is also the data source for running the application. This data set is from Spotify, and it contains 20 columns:</p>
 <ul>
 <li>Track_id: The Spotify ID for the track<br>
 </li>
-<li>Artists: The artists’ names who performed the track. If there is
-more than one artist, they are separated by a.<br>
+<li>Artists: The artists’ names who performed the track. If there is more than one artist, they are separated by a.<br>
 </li>
 <li>Album_name: The album name in which the track appears.<br>
 </li>
 <li>Track_name: Name of the track.</li>
-<li>Popularity: The popularity of a track is a value between 0 and 10,
-with 10 being the most popular. The popularity is calculated by
-algorithm and is based, in the most part, on the total number of plays
-the track has had and how recent those plays are. Generally speaking,
-songs that are being played a lot now will have a higher popularity than
-songs that were played a lot in the past. Duplicate tracks (e.g. the
-same track from a single and an album) are rated independently. Artist
-and album popularity is derived mathematically from track
-popularity.<br>
+<li>Popularity: The popularity of a track is a value between 0 and 10, with 10 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity.<br>
 </li>
 <li>Duration_ms: The track length in milliseconds.<br>
 </li>
-<li>Explicit: Whether or not the track has explicit lyrics (true = yes
-it does; false = no it does not OR unknown).<br>
+<li>Explicit: Whether or not the track has explicit lyrics (true = yes it does; false = no it does not OR unknown).<br>
 </li>
-<li>Danceability: Danceability describes how suitable a track is for
-dancing based on a combination of musical elements including tempo,
-rhythm stability, beat strength, and overall regularity. A value of 0.0
-is least danceable and 10 is most danceable.<br>
+<li>Danceability: Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 10 is most danceable.<br>
 </li>
-<li>Energy: Energy is a measure from 0.0 to 10 and represents a
-perceptual measure of intensity and activity. Typically, energetic
-tracks feel fast, loud, and noisy. For example, death metal has high
-energy, while a Bach prelude scores low on the scale.<br>
+<li>Energy: Energy is a measure from 0.0 to 10 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale.<br>
 </li>
-<li>Key: The key the track is in. Integers map to pitches using standard
-Pitch Class notation. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on.<br>
+<li>Key: The key the track is in. Integers map to pitches using standard Pitch Class notation. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on.<br>
 </li>
 <li>Loudness: The overall loudness of a track in decibels (dB).<br>
 </li>
-<li>Mode: Mode indicates the modality (major or minor) of a track, the
-type of scale from which its melodic content is derived. Major is
-represented by 1 and minor is 0.<br>
+<li>Mode: Mode indicates the modality (major or minor) of a track, the type of scale from which its melodic content is derived. Major is represented by 1 and minor is 0.<br>
 </li>
-<li>Speechiness: Speechiness detects the presence of spoken words in a
-track. The more exclusively speech-like the recording (e.g. talk show,
-audio book, poetry), the closer to 10 the attribute value. Values above
-6.6 describe tracks that are probably made entirely of spoken words.
-Values between 3.3 and 6.6 describe tracks that may contain both music
-and speech, either in sections or layered, including such cases as rap
-music. Values below 3.3 most likely represent music and other
-non-speech-like tracks.<br>
+<li>Speechiness: Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 10 the attribute value. Values above 6.6 describe tracks that are probably made entirely of spoken words. Values between 3.3 and 6.6 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 3.3 most likely represent music and other non-speech-like tracks.<br>
 </li>
-<li>Acousticness: A confidence measure from 0.0 to 10 of whether the
-track is acoustic. 10 represents high confidence the track is
-acoustic.<br>
+<li>Acousticness: A confidence measure from 0.0 to 10 of whether the track is acoustic. 10 represents high confidence the track is acoustic.<br>
 </li>
-<li>Instrumentalness: Predicts whether a track contains no vocals. “Ooh”
-and “aah” sounds are treated as instrumental in this context. Rap or
-spoken word tracks are clearly “vocal”. The closer the instrumentalness
-value is to 10, the greater likelihood the track contains no vocal
-content.<br>
+<li>Instrumentalness: Predicts whether a track contains no vocals. “Ooh” and “aah” sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly “vocal”. The closer the instrumentalness value is to 10, the greater likelihood the track contains no vocal content.<br>
 </li>
-<li>Liveness: Detects the presence of an audience in the recording.
-Higher liveness values represent an increased probability that the track
-was performed live. A value above 8 provides strong likelihood that the
-track is live.<br>
+<li>Liveness: Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 8 provides strong likelihood that the track is live.<br>
 </li>
-<li>Valence: A measure from 0 to 10 describing the musical positiveness
-conveyed by a track. Tracks with high valence sound more positive
-(e.g. happy, cheerful, euphoric), while tracks with low valence sound
-more negative (e.g. sad, depressed, angry).<br>
+<li>Valence: A measure from 0 to 10 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).<br>
 </li>
-<li>Tempo: The overall estimated tempo of a track in beats per minute
-(BPM). In musical terminology, tempo is the speed or pace of a given
-piece and derives directly from the average beat duration<br>
+<li>Tempo: The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration<br>
 </li>
-<li>Time_signature: An estimated time signature. The time signature
-(meter) is a notational convention to specify how many beats are in each
-bar (or measure).<br>
+<li>Time_signature: An estimated time signature. The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure).<br>
 </li>
 <li>Track_genre: The genre in which the track belongs.</li>
 </ul>
@@ -306,8 +251,7 @@ bar (or measure).<br>
 <tr class="even">
 <td align="left">6lfxq3CG4xtTiEg7opyCyx</td>
 <td align="left">Kina Grannis</td>
-<td align="left">Crazy Rich Asians (Original Motion Picture
-Soundtrack)</td>
+<td align="left">Crazy Rich Asians (Original Motion Picture Soundtrack)</td>
 <td align="left">Can’t Help Falling In Love</td>
 <td align="left">False</td>
 <td align="right">0</td>
@@ -464,35 +408,21 @@ Soundtrack)</td>
 <div class="section level2">
 <h2 id="scoring-function">Scoring Function<a class="anchor" aria-label="anchor" href="#scoring-function"></a>
 </h2>
-<p><strong>Function: <a href="Spotify::spotify_appinfo" class="uri">Spotify::spotify_appinfo</a></strong></p>
-<p>If you want to input a new data set to obtain your specific list, you
-might want to run this function individually. Thus, to run this
-function, you should have a data set as one of the input variables, and
-you also need to input the music genres you prefer, your five favorite
-features and their corresponding levels, as you do not input your
-selection via the application.</p>
+<p><strong>Function: <a href="Spotify::Spotify_scoring" class="uri">Spotify::Spotify_scoring</a></strong></p>
+<p>If you want to input a new data set to obtain your specific list, you might want to run this function individually. Thus, to run this function, you should have a data set as one of the input variables, and you also need to input the music genres you prefer, your five favorite features and their corresponding levels, as you do not input your selection via the application.</p>
 <p>When working with data you must:</p>
 <ul>
-<li>Preferably, you have the data set with same column structure as
-<code>Spotify_dataset</code>. If not, you need to ensure the feature
-column begins from the fifth column as the result will be calculated
-based on the features’ column.</li>
+<li>Preferably, you have the data set with same column structure as <code>Spotify_dataset</code>. If not, you need to ensure the feature column begins from the fifth column as the result will be calculated based on the features’ column.</li>
 </ul>
-<p>Regarding the output, you will get a list which contains the data as
-following:</p>
+<p>Regarding the output, you will get a list which contains the data as following:</p>
 <ul>
-<li>result: This is the result data frame calculated based on the input
-of your features and levels selection. There is top 10 music that are
-the most matched with the number of levels of features you enter.<br>
+<li>result: This is the result data frame calculated based on the input of your features and levels selection. There is top 10 music that are the most matched with the number of levels of features you enter.<br>
 </li>
-<li>user_genres: return to your input music genres. It is
-characters.<br>
+<li>user_genres: return to your input music genres. It is characters.<br>
 </li>
-<li>user_features: return to your input five features. It is
-characters.<br>
+<li>user_features: return to your input five features. It is characters.<br>
 </li>
-<li>user_level: return to your input five levels, which are correspond
-to the features. It is characters.</li>
+<li>user_level: return to your input five levels, which are correspond to the features. It is characters.</li>
 </ul>
 <table class="table">
 <colgroup>
@@ -545,7 +475,7 @@ to the features. It is characters.</li>
 <td align="right">6.824353</td>
 <td align="right">7.544041</td>
 <td align="right">5.36</td>
-<td align="right">1.657559</td>
+<td align="right">8.287794</td>
 </tr>
 <tr class="even">
 <td align="left">707</td>
@@ -562,7 +492,7 @@ to the features. It is characters.</li>
 <td align="right">7.710911</td>
 <td align="right">7.378238</td>
 <td align="right">9.35</td>
-<td align="right">1.650778</td>
+<td align="right">8.253889</td>
 </tr>
 <tr class="odd">
 <td align="left">269</td>
@@ -579,7 +509,7 @@ to the features. It is characters.</li>
 <td align="right">7.223517</td>
 <td align="right">9.678757</td>
 <td align="right">8.45</td>
-<td align="right">1.650557</td>
+<td align="right">8.252785</td>
 </tr>
 <tr class="even">
 <td align="left">805</td>
@@ -596,7 +526,7 @@ to the features. It is characters.</li>
 <td align="right">6.813625</td>
 <td align="right">7.575130</td>
 <td align="right">4.22</td>
-<td align="right">1.647530</td>
+<td align="right">8.237648</td>
 </tr>
 <tr class="odd">
 <td align="left">265</td>
@@ -613,12 +543,11 @@ to the features. It is characters.</li>
 <td align="right">7.023750</td>
 <td align="right">6.633161</td>
 <td align="right">6.87</td>
-<td align="right">1.647101</td>
+<td align="right">8.235506</td>
 </tr>
 <tr class="even">
 <td align="left">464</td>
-<td align="left">Snoop Dogg;Surjeet Singh;Akshay Kumar;Kuldeep
-Ral;Manjeet Ral;RDB</td>
+<td align="left">Snoop Dogg;Surjeet Singh;Akshay Kumar;Kuldeep Ral;Manjeet Ral;RDB</td>
 <td align="left">Singh Is Kinng - Title Song</td>
 <td align="left">Funk</td>
 <td align="right">9.035533</td>
@@ -631,7 +560,7 @@ Ral;Manjeet Ral;RDB</td>
 <td align="right">6.662875</td>
 <td align="right">6.776166</td>
 <td align="right">4.24</td>
-<td align="right">1.647085</td>
+<td align="right">8.235426</td>
 </tr>
 <tr class="odd">
 <td align="left">294</td>
@@ -648,7 +577,7 @@ Ral;Manjeet Ral;RDB</td>
 <td align="right">6.671383</td>
 <td align="right">8.393782</td>
 <td align="right">4.07</td>
-<td align="right">1.643091</td>
+<td align="right">8.215455</td>
 </tr>
 <tr class="even">
 <td align="left">103</td>
@@ -665,7 +594,7 @@ Ral;Manjeet Ral;RDB</td>
 <td align="right">6.942179</td>
 <td align="right">8.559586</td>
 <td align="right">6.27</td>
-<td align="right">1.642564</td>
+<td align="right">8.212819</td>
 </tr>
 <tr class="odd">
 <td align="left">688</td>
@@ -682,7 +611,7 @@ Ral;Manjeet Ral;RDB</td>
 <td align="right">7.029114</td>
 <td align="right">6.481865</td>
 <td align="right">5.85</td>
-<td align="right">1.641093</td>
+<td align="right">8.205462</td>
 </tr>
 <tr class="even">
 <td align="left">625</td>
@@ -699,7 +628,7 @@ Ral;Manjeet Ral;RDB</td>
 <td align="right">6.893347</td>
 <td align="right">6.570984</td>
 <td align="right">4.07</td>
-<td align="right">1.638967</td>
+<td align="right">8.194836</td>
 </tr>
 </tbody>
 </table>
@@ -707,19 +636,9 @@ Ral;Manjeet Ral;RDB</td>
 <div class="section level2">
 <h2 id="similarity-function">Similarity Function<a class="anchor" aria-label="anchor" href="#similarity-function"></a>
 </h2>
-<p><strong>Function: <a href="Spotify::spotify_similarity" class="uri">Spotify::spotify_similarity</a></strong></p>
-<p>This function consider using the basic recommendation engine
-algorithm. Create similarity scores for songs by calculating Cosine
-similarity between selected features and levels and the those of songs
-in data base, then obtain a new recommended songs list which have
-largest similarity with the selected filters.<br>
-The formula of the Cosine similarity is as follows:<br><span class="math display">\[sim(A,B)=cos(A,B)=\frac{A\cdot
-B}{||A||\cdot||B||}=\frac{\sum_{i = 1}^{n} A_{i}B_{i}}{\sqrt{\sum_{i =
-1}^{n} A_{i}^2}\sqrt{\sum_{i = 1}^{n} B_{i}^2}}\]</span> Thus, it does
-the same thing as the previous <code>spotify_appinfo</code> function but
-use different algorithm. Also, you can only run this function with new
-filters. Below, you can see another example with same input variables as
-above but obtain a different result list.</p>
+<p><strong>Function: <a href="Spotify::Spotify_similarity" class="uri">Spotify::Spotify_similarity</a></strong></p>
+<p>This function consider using the basic recommendation engine algorithm. Create similarity scores for songs by calculating Cosine similarity between selected features and levels and the those of songs in data base, then obtain a new recommended songs list which have largest similarity with the selected filters.<br>
+The formula of the Cosine similarity is as follows:<br><span class="math display">\[sim(A,B)=cos(A,B)=\frac{A\cdot B}{||A||\cdot||B||}=\frac{\sum_{i = 1}^{n} A_{i}B_{i}}{\sqrt{\sum_{i = 1}^{n} A_{i}^2}\sqrt{\sum_{i = 1}^{n} B_{i}^2}}\]</span> Thus, it does the same thing as the previous <code>spotify_appinfo</code> function but use different algorithm. Also, you can only run this function with new filters. Below, you can see another example with same input variables as above but obtain a different result list.</p>
 <table class="table">
 <colgroup>
 <col width="2%">
@@ -861,22 +780,14 @@ above but obtain a different result list.</p>
 <h2 id="radar-plot">Radar plot<a class="anchor" aria-label="anchor" href="#radar-plot"></a>
 </h2>
 <p><strong>Function: <a href="Spotify::radar_plot" class="uri">Spotify::radar_plot</a></strong></p>
-<p>To run this function individually, you are supposed to input a list
-object as the input variable. The list object should be in the same
-stucture as the output of <code>spotify_appinfo</code> function. Which
-means, it contains a data frame result, user_genres, user_features,
-user_level.</p>
+<p>To run this function individually, you are supposed to input a list object as the input variable. The list object should be in the same stucture as the output of <code>spotify_appinfo</code> function. Which means, it contains a data frame result, user_genres, user_features, user_level.</p>
 <ul>
-<li>data frame result: could have more than one row except for the
-header. If it contains several music, the function would calculate the
-average of each feature’s level to draw the plot.<br>
+<li>data frame result: could have more than one row except for the header. If it contains several music, the function would calculate the average of each feature’s level to draw the plot.<br>
 </li>
-<li>In this case, in the plot output, you could only see two layers. One
-is the layer for the result list, another is for your original input,
-the features and levels you prefer.</li>
+<li>In this case, in the plot output, you could only see two layers. One is the layer for the result list, another is for your original input, the features and levels you prefer.</li>
 </ul>
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d2c8000193368d625ffa" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-d2c8000193368d625ffa">{"x":{"visdat":{"1db762e369ba":["function () ","plotlyVisDat"]},"cur_data":"1db762e369ba","attrs":{"1db762e369ba":{"fill":"toself","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar"},"1db762e369ba.1":{"fill":"toself","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[9,8,5,4,7],"theta":["Danceability","Energy","Loudness","Speechiness","Liveness"],"name":"User' selections","inherit":true},"1db762e369ba.2":{"fill":"toself","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":["9.10659898477157","8.13","8.17564693043301","1.5440414507772","2.36"],"theta":["Danceability","Energy","Loudness","Speechiness","Liveness"],"name":"Song","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"polar":{"radialaxis":{"visible":true,"range":[0,10],"legend":{"font":{"family":"sans-serif","size":15,"color":"#000"},"bgcolor":"#E2E2E2","bordercolor":"#FFFFFF","borderwidth":2}}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(31,119,180,0.5)","fill":"toself","type":"scatterpolar","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"line":{"color":"rgba(31,119,180,1)"},"frame":null},{"fillcolor":"rgba(255,127,14,0.5)","fill":"toself","type":"scatterpolar","r":[9,8,5,4,7],"theta":["Danceability","Energy","Loudness","Speechiness","Liveness"],"name":"User' selections","mode":"markers","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"line":{"color":"rgba(255,127,14,1)"},"frame":null},{"fillcolor":"rgba(44,160,44,0.5)","fill":"toself","type":"scatterpolar","r":["9.10659898477157","8.13","8.17564693043301","1.5440414507772","2.36"],"theta":["Danceability","Energy","Loudness","Speechiness","Liveness"],"name":"Song","mode":"markers","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"line":{"color":"rgba(44,160,44,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fd41d06ec9f825f9d0e5" style="width:700px;height:432.632880098888px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fd41d06ec9f825f9d0e5">{"x":{"visdat":{"51e070366e6b":["function () ","plotlyVisDat"]},"cur_data":"51e070366e6b","attrs":{"51e070366e6b":{"fill":"toself","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar"},"51e070366e6b.1":{"fill":"toself","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[9,8,5,4,7],"theta":["Danceability","Energy","Loudness","Speechiness","Liveness"],"name":"User' selections","inherit":true},"51e070366e6b.2":{"fill":"toself","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":["9.10659898477157","8.13","8.17564693043301","1.5440414507772","2.36"],"theta":["Danceability","Energy","Loudness","Speechiness","Liveness"],"name":"Song","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"polar":{"radialaxis":{"visible":true,"range":[0,10],"legend":{"font":{"family":"sans-serif","size":15,"color":"#000"},"bgcolor":"#E2E2E2","bordercolor":"#FFFFFF","borderwidth":2}}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(31,119,180,0.5)","fill":"toself","type":"scatterpolar","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"line":{"color":"rgba(31,119,180,1)"},"frame":null},{"fillcolor":"rgba(255,127,14,0.5)","fill":"toself","type":"scatterpolar","r":[9,8,5,4,7],"theta":["Danceability","Energy","Loudness","Speechiness","Liveness"],"name":"User' selections","mode":"markers","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"line":{"color":"rgba(255,127,14,1)"},"frame":null},{"fillcolor":"rgba(44,160,44,0.5)","fill":"toself","type":"scatterpolar","r":["9.10659898477157","8.13","8.17564693043301","1.5440414507772","2.36"],"theta":["Danceability","Energy","Loudness","Speechiness","Liveness"],"name":"Song","mode":"markers","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"line":{"color":"rgba(44,160,44,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

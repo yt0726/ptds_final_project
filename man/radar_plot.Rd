@@ -21,7 +21,7 @@ Draw a radar plot to show the value of one song (rank) of
 each feature and also show the level of each feature that user choose.
 }
 \examples{
-top10_song <- spotify_appinfo(genres = "Funk",
+top10_song <- Spotify_scoring(genres = "Funk",
 features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
 levels = c(9,8,5,4,7))
 radar_plot(top10_song, 1)

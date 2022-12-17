@@ -19,10 +19,10 @@
 #' @import lsa
 #' @export
 #' @examples
-#' spotify_similarity(genres = "Funk",
+#' Spotify_similarity(genres = "Funk",
 #' features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
 #' levels = c(9,8,5,4,7))
-spotify_similarity <- function(genres, features, levels){
+Spotify_similarity <- function(genres, features, levels){
 
   #user's selection
   genre <- genres

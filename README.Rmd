@@ -29,7 +29,7 @@ You can install the development version of Spotify from [GitHub](https://github.
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ptds2022/final-project-group-a-1")
+devtools::install_github("yt0726/ptds_final_project")
 ```
 
 ## Usage   
@@ -51,7 +51,7 @@ Spotify::Spotify_gui()
 Here is to simulate the output obtained by your selections. If you choose music's genre is: Funk, and you care about Danceability, Energy, Loudness, Speechiness, Liveness, and you set the corresponding levels are 9,8,5,4,7, you will get the list similar to the table below. Of course, you could use this function individually, and transmit input like the example.      
 
 ```{r scoring}
-example <- spotify_appinfo(genres="Funk",
+example <- Spotify_scoring(genres="Funk",
                 features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
                 levels = c(9,8,5,4,7))
 knitr::kable(example$result)
@@ -61,7 +61,7 @@ knitr::kable(example$result)
 
 Besides running the application, if you have similar data set which includes a data frame like the above table, and five fixed features and their levels, you could run the radar plot individually.    
 
-Yet, you need input the `rank` variable which indicates the range of songs you want to plot. For example, if you want to plot the first 3 songs, you would input 1:3, and the values of their features' levels would be averaged. The example below only plots one songs and compared with the selections. Check example as following:        
+Yet, you need input the `rank` variable which indicates the range of songs you want to plot. For example, if you want to plot the first sons, you would input rank=1, and the values of their features' levels would be averaged. The example below only plots one songs and compared with the selections. Check example as following:        
 
 
 ```{r radarplot, echo=FALSE,results='hide',warning=FALSE,message=FALSE}
@@ -72,7 +72,7 @@ Meantime, similar to radar plot, you could also run similarity function separate
 
 **Run similarity function**     
 ```{r}
-example_2 <- spotify_similarity(genres = "Funk",
+example_2 <- Spotify_similarity(genres = "Funk",
 features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
 levels = c(9,8,5,4,7))
 

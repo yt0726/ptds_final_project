@@ -69,7 +69,7 @@ knitr::kable(Spotify::Spotify_dataset[1:10,])
          
 # Scoring Function     
 
-**Function: Spotify::spotify_appinfo**   
+**Function: Spotify::Spotify_scoring**   
 
 If you want to input a new data set to obtain your specific list, you might want to run this function individually. Thus, to run this function, you should have a data set as one of the input variables, and you also need to input the music genres you prefer, your five favorite features and their corresponding levels, as you do not input your selection via the application.    
 
@@ -84,7 +84,7 @@ Regarding the output, you will get a list which contains the data as following:
 * user_features: return to your input five features. It is characters.   
 * user_level: return to your input five levels, which are correspond to the features. It is characters.    
 ```{r scoring, echo=FALSE}
-example <- spotify_appinfo(genres="Funk",
+example <- Spotify_scoring(genres="Funk",
                 features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
                 levels = c(9,8,5,4,7))
 knitr::kable(example$result)
@@ -92,7 +92,7 @@ knitr::kable(example$result)
 
 # Similarity Function 
 
-**Function: Spotify::spotify_similarity**  
+**Function: Spotify::Spotify_similarity**  
 
 This function consider using the basic recommendation engine algorithm. Create similarity scores for songs by calculating Cosine similarity between selected features and levels and the those of songs in data base, then obtain a new recommended songs list which have largest similarity with the selected filters.    
 The formula of the Cosine similarity is as follows:   
@@ -100,7 +100,7 @@ $$sim(A,B)=cos(A,B)=\frac{A\cdot B}{||A||\cdot||B||}=\frac{\sum_{i = 1}^{n} A_{i
 Thus, it does the same thing as the previous `spotify_appinfo` function but use different algorithm. Also, you can only run this function with new filters. Below, you can see another example with same input variables as above but obtain a different result list.        
 
 ```{r similarity,echo=FALSE}
-example_2 <- spotify_similarity(genres = "Funk",
+example_2 <- Spotify_similarity(genres = "Funk",
 features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
 levels = c(9,8,5,4,7))
 
