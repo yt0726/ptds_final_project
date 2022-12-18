@@ -24,7 +24,8 @@ Imports: dplyr,
          shinythemes,
          shinyWidgets,
          DT,
-         magrittr
+         magrittr,
+         shinyFeedback
 Suggests: 
     knitr,
     rmarkdown,
