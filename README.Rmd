@@ -61,7 +61,7 @@ knitr::kable(example$result)
 
 Besides running the application, if you have similar data set which includes a data frame like the above table, and five fixed features and their levels, you could run the radar plot individually.    
 
-Yet, you need input the `rank` variable which indicates the range of songs you want to plot. For example, if you want to plot the first sons, you would input rank=1, and the values of their features' levels would be averaged. The example below only plots one songs and compared with the selections. Check example as following:        
+Yet, you need input the `rank` variable which indicates the range of songs you want to plot. For example, if you want to plot the first song, you would input rank=1, if you want to plot the second, then input rank =2, and so on, and the values of their features' levels would be captured. The example below only plots one songs and compared with the selections. Check example as following:        
 
 
 ```{r radarplot, echo=FALSE,results='hide',warning=FALSE,message=FALSE}
