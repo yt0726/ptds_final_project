@@ -19,18 +19,18 @@ library(Spotify)
 ```
 
 
-This vignette provides more information of this package. It contains 4 functions. You could get the details of each function in the following context.        
+This vignette provides more information of this package. This package contains 4 functions. You could get the details of each function in the following context.        
 
-The function depends on functions that are made available from other packages:
+The package depends on functions that are made available from other packages:
 *dplyr*, *plotly*, *lsa*, *shinydashboard*, *shiny*, *shinythemes*, *shinyWidgets*, *fresh*, *DT*.    
 
 # Spotify Application   
 
 **Function: Spotify::Spotify_gui**
 
-This function is to run the application. To run the application, you could run it directly to start-up the program. You would see the pop-up window of the application, then you could input your preference following the instructions on the first page `Introduction`. When you only run this application, you do not need to have any data. There is a data set obtained from Spotify that contains 106,943 observation (music).    
+This function is to run the application. To run the application, you could run it directly to start-up the program. You would see the pop-up window of the application, then you could input your preference following the instructions on the first page `Introduction`. When you only run this application, you do not need to have any data. There is a data set obtained from Spotify containing 106,943 observation (songs).    
 
-*Example*
+*Rnning example*   
 ```{r,eval=FALSE}
 Spotify::Spotify_gui()
 ```
@@ -39,7 +39,7 @@ Spotify::Spotify_gui()
 
 **Function: Spotify::Spotify_dataset**    
 
-This package contains one data set which is also the data source for running the application. This data set is from Spotify, and it contains 20 columns:
+This package contains one data set which is also the data source for running the application shown above. This data set is from Spotify, and it contains 20 columns:
 
 * Track_id: The Spotify ID for the track    
 * Artists: The artists' names who performed the track. If there is more than one artist, they are separated by a.      
@@ -60,8 +60,11 @@ This package contains one data set which is also the data source for running the
 * Valence: A measure from 0 to 10 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).       
 * Tempo: The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration       
 * Time_signature: An estimated time signature. The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure).     
-* Track_genre: The genre in which the track belongs.   
+* Track_genre: The genre in which the track belongs.     
 
+You could fine-tune your preference for the features from column 5 to column 20 when you run the application, and even the scoring function and similarity function which will be explained in the following.        
+
+**10 examples of the data**    
 ```{r}
 knitr::kable(Spotify::Spotify_dataset[1:10,])
 ```
@@ -71,18 +74,21 @@ knitr::kable(Spotify::Spotify_dataset[1:10,])
 
 **Function: Spotify::Spotify_scoring**   
 
-If you want to input a new data set to obtain your specific list, you might want to run this function individually. Thus, to run this function, you should have a data set as one of the input variables, and you also need to input the music genres you prefer, your five favorite features and their corresponding levels, as you do not input your selection via the application.    
+If you want to input a new data set to obtain your specific list, you might want to run this function individually. Thus, to run this function, you should have a data set as one of the input variables, and you also need to input the music genres you prefer, your five favorite features and their corresponding levels, since you do not input your selection via the application.    
 
-When working with data you must:   
+When working with the input variables you must:   
 
-* Preferably, you have the data set with same column structure as `Spotify_dataset`. If not, you need to ensure the feature column begins from the fifth column as the result will be calculated based on the features' column.   
+* input the music genres, features and their corresponding levels you prefer.   
+* variables' format should be characters.     
 
 Regarding the output, you will get a list which contains the data as following:     
 
 * result: This is the result data frame calculated based on the input of your features and levels selection. There is top 10 music that are the most matched with the number of levels of features you enter.      
 * user_genres: return to your input music genres. It is characters.    
 * user_features: return to your input five features. It is characters.   
-* user_level: return to your input five levels, which are correspond to the features. It is characters.    
+* user_level: return to your input five levels, which are correspond to the features. It is characters. 
+
+Here, it is the example:   
 ```{r scoring, echo=FALSE}
 example <- Spotify_scoring(genres="Funk",
                 features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
@@ -95,9 +101,10 @@ knitr::kable(example$result)
 **Function: Spotify::Spotify_similarity**  
 
 This function consider using the basic recommendation engine algorithm. Create similarity scores for songs by calculating Cosine similarity between selected features and levels and the those of songs in data base, then obtain a new recommended songs list which have largest similarity with the selected filters.    
+
 The formula of the Cosine similarity is as follows:   
 $$sim(A,B)=cos(A,B)=\frac{A\cdot B}{||A||\cdot||B||}=\frac{\sum_{i = 1}^{n} A_{i}B_{i}}{\sqrt{\sum_{i = 1}^{n} A_{i}^2}\sqrt{\sum_{i = 1}^{n} B_{i}^2}}$$
-Thus, it does the same thing as the previous `spotify_appinfo` function but use different algorithm. Also, you can only run this function with new filters. Below, you can see another example with same input variables as above but obtain a different result list.        
+Thus, it does the same thing as the previous `Spotify_scoring` function but use different algorithm. Also, you can only run this function with new filters. Below, you can see another example with same input variables as above but obtain a different result list. Also, please ensure the input variables as characters.        
 
 ```{r similarity,echo=FALSE}
 example_2 <- Spotify_similarity(genres = "Funk",
@@ -113,10 +120,11 @@ knitr::kable(example_2$result)
 
 **Function: Spotify::radar_plot** 
 
-To run this function individually, you are supposed to input a list object as the input variable. The list object should be in the same stucture as the output of `spotify_appinfo` function. Which means, it contains a data frame result, user_genres, user_features, user_level.
+To run this function individually, you are supposed to input a list object as the input variable. The list object should be in the same structure as the output of `Spotify_scoring` or `Spotify_similarity` function. Which means, it contains a data frame result, user_genres, user_features, user_level.
 
-* data frame result: could have more than one row except for the header. If it contains several music, the function would calculate the average of each feature's level to draw the plot.       
+* data frame result: should have at least one row except for the header.       
 * In this case, in the plot output, you could only see two layers. One is the layer for the result list, another is for your original input, the features and levels you prefer.      
+* Meantime, you need input the `rank` variable which indicates the song you want to plot. For example, if you want to plot the first song, you would input rank=1, if you want to plot the second, then input rank =2, and so on, and the values of their features' levels would be captured. The example below only plots one songs and compared with the selections. Check example as following:    
 
 ```{r radarplot, echo = FALSE, message=FALSE,warning=FALSE}
 radar_plot(example,rank = 1)

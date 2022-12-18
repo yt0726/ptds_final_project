@@ -1,5 +1,5 @@
 ---
-title: "PTDA_SPOTIFY"
+title: "PTDS_Spotify"
 output: github_document
 always_allow_html: true
 ---
@@ -21,7 +21,7 @@ webshot::install_phantomjs()
 [![R-CMD-check](https://github.com/yt0726/ptds_final_project/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/yt0726/ptds_final_project/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of Spotify is to find the user’s favorite music list. It allows you select features they care more about and their corresponding levels. The Spotify would give two recommendation lists which are as match as possible to your selections. One of the lists is obtained by cosine similarity algorithm.     
+The goal of Spotify is to find the user’s favorite music list. It allows you select features you care more about and their corresponding levels. The Spotify would give two recommendation lists which are as match as possible to your selections. One of the lists is obtained by cosine similarity algorithm.     
 
 ## Installation
 
@@ -61,20 +61,20 @@ knitr::kable(example$result)
 
 Besides running the application, if you have similar data set which includes a data frame like the above table, and five fixed features and their levels, you could run the radar plot individually.    
 
-Yet, you need input the `rank` variable which indicates the range of songs you want to plot. For example, if you want to plot the first song, you would input rank=1, if you want to plot the second, then input rank =2, and so on, and the values of their features' levels would be captured. The example below only plots one songs and compared with the selections. Check example as following:        
+Yet, you need input the `rank` variable which indicates the song you want to plot. For example, if you want to plot the first song, you would input rank=1, if you want to plot the second, then input rank =2, and so on, and the values of their features' levels would be captured. The example below only plots one songs and compared with the selections. Check example as following:        
 
 
 ```{r radarplot, echo=FALSE,results='hide',warning=FALSE,message=FALSE}
 radar_plot(example,rank = 1)
 ```
 
+**Run similarity function**    
+
 Meantime, similar to radar plot, you could also run similarity function separately. Check example as following:         
 
-**Run similarity function**     
 ```{r}
 example_2 <- Spotify_similarity(genres = "Funk",
 features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
 levels = c(9,8,5,4,7))
 
-knitr::kable(example_2$result)
-```
+knitr::kable(example_2$result) 

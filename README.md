@@ -1,4 +1,4 @@
-PTDA_SPOTIFY
+PTDS_Spotify
 ================
 
 # Spotify <img src="man/figures/logo.png" align="right" width="120" />
@@ -9,7 +9,7 @@ PTDA_SPOTIFY
 <!-- badges: end -->
 
 The goal of Spotify is to find the user’s favorite music list. It allows
-you select features they care more about and their corresponding levels.
+you select features you care more about and their corresponding levels.
 The Spotify would give two recommendation lists which are as match as
 possible to your selections. One of the lists is obtained by cosine
 similarity algorithm.
@@ -74,26 +74,26 @@ Besides running the application, if you have similar data set which
 includes a data frame like the above table, and five fixed features and
 their levels, you could run the radar plot individually.
 
-Yet, you need input the `rank` variable which indicates the range of
-songs you want to plot. For example, if you want to plot the first song,
-you would input rank=1, if you want to plot the second, then input rank
-=2, and so on, and the values of their features’ levels would be
-captured. The example below only plots one songs and compared with the
-selections. Check example as following:
+Yet, you need input the `rank` variable which indicates the song you
+want to plot. For example, if you want to plot the first song, you would
+input rank=1, if you want to plot the second, then input rank =2, and so
+on, and the values of their features’ levels would be captured. The
+example below only plots one songs and compared with the selections.
+Check example as following:
 
 <img src="man/figures/README-radarplot-1.png" width="60%" />
 
+**Run similarity function**
+
 Meantime, similar to radar plot, you could also run similarity function
 separately. Check example as following:
-
-**Run similarity function**
 
 ``` r
 example_2 <- Spotify_similarity(genres = "Funk",
 features=c("Danceability","Energy","Loudness","Speechiness","Liveness"),
 levels = c(9,8,5,4,7))
 
-knitr::kable(example_2$result)
+knitr::kable(example_2$result) 
 ```
 
 |     | Artists                           | Track_name                              | Track_genre | Danceability | Energy | Loudness | Speechiness | Liveness |
