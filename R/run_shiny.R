@@ -6,6 +6,7 @@
 #' @import fresh
 #' @import shinythemes
 #' @import shinyWidgets
+#' @import shinyFeedback
 #' @import plotly
 #' @import dplyr
 #' @importFrom DT datatable JS

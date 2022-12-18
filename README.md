@@ -41,9 +41,7 @@ Spotify::Spotify_gui()
 
 Here is the link of screencast for running APP:
 
-<a href="https://youtu.be/81jgy23Xsr0" width="100%"><img
-src="https://img.youtube.com/vi/81jgy23Xsr0/maxresdefault.jpg"
-alt="Watch the video" /></a>
+<a href="https://youtu.be/81jgy23Xsr0" width="100%"><img src="https://img.youtube.com/vi/81jgy23Xsr0/maxresdefault.jpg" alt="Watch the video" /></a>
 
 **Run scoring function**
 
