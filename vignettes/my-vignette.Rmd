@@ -30,10 +30,18 @@ The package depends on functions that are made available from other packages:
 
 This function is to run the application. To run the application, you could run it directly to start-up the program. You would see the pop-up window of the application, then you could input your preference following the instructions on the first page `Introduction`. When you only run this application, you do not need to have any data. There is a data set obtained from Spotify containing 106,943 observation (songs).    
 
-*Rnning example*   
+*Running example*   
 ```{r,eval=FALSE}
 Spotify::Spotify_gui()
 ```
+
+Here is the screencast for running APP:    
+
+<video width="100%" controls>
+  <source src="man/figures/screencast.mp4" type="video/mp4">
+</video>
+
+<span style="font-size:12px;"> *Running APP*</span>   
 
 # Data set included in Package      
 

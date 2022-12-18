@@ -46,6 +46,15 @@ library(Spotify)
 Spotify::Spotify_gui()
 ```
 
+Here is the screencast for running APP:    
+
+<video width="100%" controls>
+  <source src="man/figures/screencast.mp4" type="video/mp4">
+</video>
+
+<span style="font-size:12px;"> *Running APP*</span>    
+
+
 **Run scoring function**   
 
 Here is to simulate the output obtained by your selections. If you choose music's genre is: Funk, and you care about Danceability, Energy, Loudness, Speechiness, Liveness, and you set the corresponding levels are 9,8,5,4,7, you will get the list similar to the table below. Of course, you could use this function individually, and transmit input like the example.      

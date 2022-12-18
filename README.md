@@ -39,6 +39,14 @@ have any data. There is a data set obtained from Spotify that contains
 Spotify::Spotify_gui()
 ```
 
+Here is the screencast for running APP:
+
+<video width="100%" controls>
+<source src="man/figures/screencast.mp4" type="video/mp4">
+</video>
+
+<span style="font-size:12px;"> *Running APP*</span>
+
 **Run scoring function**
 
 Here is to simulate the output obtained by your selections. If you
