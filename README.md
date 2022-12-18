@@ -39,7 +39,8 @@ have any data. There is a data set obtained from Spotify that contains
 Spotify::Spotify_gui()
 ```
 
-Here is the link of screencast for running APP:
+Here is the link of screencast for running APP. Please click screenshot
+to turn to the video:
 
 <a href="https://youtu.be/81jgy23Xsr0" width="100%"><img
 src="https://img.youtube.com/vi/81jgy23Xsr0/maxresdefault.jpg"
