@@ -39,13 +39,12 @@ have any data. There is a data set obtained from Spotify that contains
 Spotify::Spotify_gui()
 ```
 
-Here is the screencast for running APP:
+Here is the link of screencast for running APP, and it could been found
+in my `my-vignette` article:
 
-<div class="vembedr">
-<div>
-<iframe src="https://www.youtube.com/embed/81jgy23Xsr0" width="533" height="300" frameborder="0" allowfullscreen="" data-external="1"></iframe>
-</div>
-</div>
+<a href="https://youtu.be/81jgy23Xsr0" width="100%"><img
+src="https://img.youtube.com/vi/81jgy23Xsr0/maxresdefault.jpg"
+alt="Watch the video" /></a>
 
 **Run scoring function**
 

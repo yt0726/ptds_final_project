@@ -13,7 +13,6 @@ knitr::opts_chunk$set(
   out.width = "60%"
 )
 webshot::install_phantomjs()
-library(vembedr)
 ```
 
 # Spotify <img src="man/figures/logo.png" align="right" width="120" />
@@ -47,12 +46,9 @@ library(Spotify)
 Spotify::Spotify_gui()
 ```
 
-Here is the screencast for running APP:    
+Here is the link of screencast for running APP, and it could been found in my `my-vignette` article:    
 
-```{r,echo=FALSE, out.width="100%"}
-embed_url("https://youtu.be/81jgy23Xsr0")
-```
-
+[![Watch the video](https://img.youtube.com/vi/81jgy23Xsr0/maxresdefault.jpg)](https://youtu.be/81jgy23Xsr0){width="100%"}
 
 **Run scoring function**   
 
