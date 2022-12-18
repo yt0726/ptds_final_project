@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 
 ```{r setup,include=FALSE}
 library(Spotify)
+library(vembedr)
+
 ```
 
 
@@ -37,11 +39,10 @@ Spotify::Spotify_gui()
 
 Here is the screencast for running APP:    
 
-<video width="100%" controls>
-  <source src="man/figures/screencast.mp4" type="video/mp4">
-</video>
+```{r,echo=FALSE, out.width="100%"}
+embed_url("https://youtu.be/81jgy23Xsr0")
+```
 
-<span style="font-size:12px;"> *Running APP*</span>   
 
 # Data set included in Package      
 

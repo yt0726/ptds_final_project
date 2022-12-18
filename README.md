@@ -41,11 +41,11 @@ Spotify::Spotify_gui()
 
 Here is the screencast for running APP:
 
-<video width="100%" controls>
-<source src="man/figures/screencast.mp4" type="video/mp4">
-</video>
-
-<span style="font-size:12px;"> *Running APP*</span>
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/81jgy23Xsr0" width="533" height="300" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
 
 **Run scoring function**
 
