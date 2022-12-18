@@ -35,7 +35,7 @@ This function is to run the application. To run the application, you could run i
 Spotify::Spotify_gui()
 ```
 
-Here is the link of screencast for running APP:             
+Here is the link of screencast for running APP. Please click screenshot to turn to the video:           
 
 [![Watch the video](https://img.youtube.com/vi/81jgy23Xsr0/maxresdefault.jpg)](https://youtu.be/81jgy23Xsr0){width="100%"}  
 
