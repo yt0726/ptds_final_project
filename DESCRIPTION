@@ -15,21 +15,21 @@ LazyData: true
 LazyDataCompression: xz
 RoxygenNote: 7.2.3
 Depends: R (>= 4.0.0)
-Imports: dplyr,
-         plotly,
-         lsa,
-         shinydashboard,
-         shiny,
-         fresh,
-         shinythemes,
-         shinyWidgets,
-         DT,
-         magrittr,
-         shinyFeedback
+Imports: dplyr (>= 1.0.10),
+         plotly (>= 4.10.1),
+         lsa (>= 0.73.3),
+         shinydashboard (>= 0.7.2),
+         shiny (>= 1.7.3),
+         fresh (>= 0.2.0),
+         shinythemes (>= 1.2.0),
+         shinyWidgets (>= 0.7.5),
+         DT (>= 0.26),
+         magrittr (>= 2.0.3),
+         shinyFeedback (>= 0.4.0)
 Suggests: 
-    knitr,
-    rmarkdown,
+    knitr (>= 1.40),
+    rmarkdown (>= 2.17),
     testthat (>= 3.0.0),
-    shinytest2
+    shinytest2 (>= 0.2.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
